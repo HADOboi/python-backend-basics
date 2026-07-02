@@ -22,9 +22,9 @@ class Student:
     def display_details(self):
         print("\n\nSTUDENT DETAILS")
         print("---------------")
-        print("Name : ", self.name)
-        print("Age : ", self.age)
-        print("Course : ", self.course)
+        print("Name : ", self.__name)
+        print("Age : ", self.__age)
+        print("Course : ", self.__course)
 
 class GraduateStudent(Student):
     def __init__(self, name, age, course, specialization):
@@ -36,7 +36,17 @@ class GraduateStudent(Student):
         print("Specialization : ", self.__specialization)
     
 name = input("enter student name: ")
-age = int(input("enter sutdent age: "))
+
+while True:
+    try:
+        age = int(input("enter sutdent age: "))
+        if age <= 0:
+            print("age must be greater than 0")
+            continue
+        break
+    except ValueError:
+        print("Enter valid age")
+
 course = input("enter course: ")
 specialization = input("enter specialization: ")
 
